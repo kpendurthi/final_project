@@ -1,0 +1,38 @@
+{% extends 'jobsapp/base.html' %}
+{% block content %}
+
+<ul>
+    <h4 class="heading">Find a <span class="accent">job </span> you will <span class="accent">love</span></h4>
+    <form id="job-main-form" method="get" action="{% url 'searh' %}" class="job-main-form">
+        <div class="controls">
+            <div class="row align-items-center">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="profession">Position</label>
+                        <input type="text" id="profession" name="position"
+                               placeholder="Position you are looking for" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location"
+                               placeholder="Any particular location?" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit"
+                            class="btn btn-outline-white-primary job-main-form__button">Search
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    <h2>Jobs <a href="{% url 'job_create' %}">(new)</a></h2>
+    {% for job in jobs %}
+    <li>
+        <a href="{% url 'job_detail' pk=job.pk %}">{{ job.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

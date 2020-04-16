@@ -1,0 +1,7 @@
+{% extends 'jobsapp/base.html' %} {% block content %}
+<form method ="post" action="{% url 'signup' %}">
+    {% csrf_token %} {{ form.as_p}}
+    <input type ="submit" value="signup"/>
+    <input type="hidden" name ="next" value="{{ next }}"/>
+</form>
+{% endblock %}

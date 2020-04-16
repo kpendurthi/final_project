@@ -1,0 +1,11 @@
+{% extends 'jobsapp/base.html' %}
+{% block content %}
+<h2>Employers <a href="{% url 'employer_create' %}"">(new)</a></h2>
+<ul>
+    {% for employer in employers %}
+    <li>
+        <a href="{% url 'employer_detail' pk=employer.pk %}">{{ employer.Company_Name }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

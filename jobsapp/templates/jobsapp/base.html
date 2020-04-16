@@ -1,0 +1,25 @@
+{% load static %}
+<html>
+<head>
+    <title>JobRecruiter</title>
+    <link rel="stylesheet" href="{% static 'css/jobsapp.css' %}">
+</head>
+<body>
+    <h1>JobRecruiter</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/employer">Employers</a>
+        <a href="/jobs">Jobs</a>
+        <div class="user-info">
+            {% if user.is_authenticated %} Welcome, {{ user.username }}
+            <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'signup' %}">Signup</a>
+            {% endif %}
+          </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

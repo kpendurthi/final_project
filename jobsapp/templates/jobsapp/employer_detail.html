@@ -1,0 +1,13 @@
+{% extends 'jobsapp/base.html' %}
+{% block content %}
+<h2>{{ employer.Company_Name }} <a href="{% url 'employer_edit' pk=employer.pk %}">(edit)</a><a href ="% url 'job_delete' pk=job.pk %}">(delete)</a></h2>
+
+<h3>Jobs <a href="{% url 'job_create' %}">(new)</a></h3>
+<ul>
+  {% for job in employer.job.all %}
+  <li>
+    <a href="{% url 'job_detail' pk=job.pk %}">{{job.title}}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

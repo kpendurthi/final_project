@@ -1,11 +1,22 @@
 body {
-    font-family: "Roboto",'Helvetica Neue', sans-serif;
-    max-width: 50em;
+    font-family: "Roboto",Helvetica,Arial,sans-serif;
     font-size: .875rem;
-    margin: auto;
-    padding: 2em 1em;
-    background-color:orange;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #555;
+    background-color: #fff;
+    background-image: url('/static/img/meeting.jpg');
+    background-size: cover;
 }
+
+container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 nav a {
     border: 1px solid black;
     margin: .5em;

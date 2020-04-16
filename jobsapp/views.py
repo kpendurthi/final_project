@@ -6,6 +6,7 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.utils.decorators import method_decorator
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 @login_required
 def employer_list(request):
@@ -59,7 +60,8 @@ def employer_delete(request, pk):
 #         form = SearchForm()
 #     return render(request, 'jobsapp/jobsearch_form.html', {'form': form})
 
-class HomeView(ListView):
+class HomeView(LoginRequiredMixin,ListView):
+    login_url = '/accounts/login/'
     model = Job
     template_name = 'home.html'
     context_object_name = 'jobs'
@@ -67,7 +69,9 @@ class HomeView(ListView):
     def get_queryset(self):
         return self.model.objects.all()[:5]
 
-class SearchView(ListView):
+class SearchView(LoginRequiredMixin,ListView):
+    login_url = '/accounts/login/'
+    redirect_field_name = 'redirect_to'
     model = Job
     template_name = 'search.html'
     context_object_name = 'jobs'
@@ -76,7 +80,9 @@ class SearchView(ListView):
         return self.model.objects.filter(location__contains=self.request.GET['location'],
                                          title__contains=self.request.GET['position'])
 
-class JobListView(ListView):
+class JobListView(LoginRequiredMixin,ListView):
+    login_url = '/accounts/login/'
+    redirect_field_name = 'redirect_to'
     model = Job
     template_name = 'jobsapp/job_list.html'
     context_object_name = 'jobs'

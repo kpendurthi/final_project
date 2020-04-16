@@ -25,7 +25,7 @@ SECRET_KEY = 'p+u+fhefv!3*#j80=8(^q=@ylh9aop+012&ln1-bbhm*c%yxi7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['myjobrecruiterapp.herokuapp.com', 'localhost']
 
 LOGIN_REDIRECT_URL = '/'
 
@@ -122,5 +122,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+django_heroku.settings(locals())

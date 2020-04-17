@@ -2,7 +2,7 @@
 {% block content %}
 
 <ul>
-    <h4 class="heading">Find a <span class="accent">job </span> you will <span class="accent">love</span></h4>
+    <h4 class="heading">Find a <span class="accent">jobs </span> For you </h4>
     <form id="job-main-form" method="get" action="{% url 'searh' %}" class="job-main-form">
         <div class="controls">
             <div class="row align-items-center">
@@ -22,13 +22,13 @@
                 </div>
                 <div class="col-md-2">
                     <button type="submit"
-                            class="btn btn-outline-white-primary job-main-form__button">Search
+                            class="btn btn-outline-white-primary job-main-form__button">Find Jobs
                         <i class="fa fa-search"></i>
                     </button>
                 </div>
             </div>
         </div>
-    <h2>Jobs <a href="{% url 'job_create' %}">(new)</a></h2>
+    <h2>Jobs <a href="{% url 'job_create' %}">(Post a Job)</a></h2>
     {% for job in jobs %}
     <li>
         <a href="{% url 'job_detail' pk=job.pk %}">{{ job.title }}</a>

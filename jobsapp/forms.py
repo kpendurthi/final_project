@@ -5,7 +5,7 @@ class EmployerForm(forms.ModelForm):
 
     class Meta:
         model = Employer
-        fields = ('Company_Name','Company_Address','Email',)
+        fields = ('Company_Name','Company_Address','Email','username',)
 
 class JobForm(forms.ModelForm):
 

@@ -8,10 +8,23 @@ from django.utils import timezone
 from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
-@login_required
-def employer_list(request):
-    employers = Employer.objects.all()
-    return render(request, 'jobsapp/employer_list.html', {'employers': employers})
+# @login_required
+# def employer_list(request):
+#     employers = Employer.objects.all()
+#     return render(request, 'jobsapp/employer_list.html', {'employers': employers})
+
+class EmployerListView(LoginRequiredMixin,ListView):
+    login_url = '/accounts/login/'
+    redirect_field_name = 'redirect_to'
+    model = Employer
+    template_name = 'jobsapp/employer_list.html'
+    context_object_name = 'employers'
+    paginate_by = 2
+
+    def get_queryset(self):
+        user = self.request.user
+        return self.model.objects.filter(username__contains=user)
+        # return self.model.objects.all()
 
 @login_required
 def employer_detail(request, pk):
@@ -50,15 +63,6 @@ def employer_delete(request, pk):
 #     jobs = Job.objects.all()
 #     return render(request, 'jobsapp/job_list.html', {'jobs': jobs})
 
-# def jobsearch_list(request):
-#     if request.method == 'POST':
-#         form = SearchForm(request.POST)
-#         if form.is_valid():
-#            jobs = Job.objects.filter(location__contains=form.cleaned_data['location'],title__contains=form.cleaned_data['position'])
-#            return render(request, 'jobsapp/job_list.html', {'jobs': jobs})
-#     else:
-#         form = SearchForm()
-#     return render(request, 'jobsapp/jobsearch_form.html', {'form': form})
 
 class HomeView(LoginRequiredMixin,ListView):
     login_url = '/accounts/login/'
@@ -79,6 +83,8 @@ class SearchView(LoginRequiredMixin,ListView):
     def get_queryset(self):
         return self.model.objects.filter(location__contains=self.request.GET['location'],
                                          title__contains=self.request.GET['position'])
+
+
 
 class JobListView(LoginRequiredMixin,ListView):
     login_url = '/accounts/login/'

@@ -1,6 +1,6 @@
 {% extends 'jobsapp/base.html' %}
 {% block content %}
-<h2>{{ job.title }} <a href="{% url 'job_edit' pk=job.pk %}">(edit)</a><a href ="% url 'job_delete' pk=job.pk %}">(delete)</a></h2>
+<h2>{{ job.title }} <a href="{% url 'job_edit' pk=job.pk %}">(edit)</a><a href ="{% url 'job_delete' pk=job.pk %}">(delete)</a></h2>
 <h2>address:{{job.location}}</h2>
 <h2>salary :{{job.salary}}</h2>
 <img src="{{ job.image_url }}" alt="" class="company-photo" height="200" width="200" />

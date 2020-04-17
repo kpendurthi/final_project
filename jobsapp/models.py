@@ -12,6 +12,8 @@ class Employer(models.Model):
     Company_Name= models.CharField(max_length=100)
     Company_Address=models.CharField(max_length=100)
     Email=models.CharField(max_length=100)
+    # username=models.CharField(max_length=12)
+    # password=models.CharField(max_length=100)
 
     def __str__(self):
         return self.Company_Name

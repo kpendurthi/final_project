@@ -2,6 +2,7 @@
 Overview
 This application allows employers to add, edit, view and delete jobs and employees to view jobs
 
+
 Project Links
 GitHub: (https://github.com/kpendurthi/final_project)
 heroku: https://myjobrecruiterapp.herokuapp.com/
@@ -9,7 +10,8 @@ heroku: https://myjobrecruiterapp.herokuapp.com/
 Technologies used:
 Django framework , postgress database and css
 
-MVP - Bronze
+
+MVP -
 View list of jobs available to apply and list of employers who posted the jobs
 Add/Edit a job and employers
 update job posting
@@ -37,6 +39,8 @@ Email           Char Field
 username        Char Field
 
 
+
+
 Table job
 
 Field	           Property
@@ -56,9 +60,12 @@ filled	            BooleanField
 salary              IntegerField
 
    
+   
+   
 
 Issues and Resolutions
 Use this section to list of all major issues encountered and their resolution.
+
 
 issue #2 login and authentication problem (after login it is not going showing default page)
 resolution: forgot add redirecgt page setting in settings.py file. 

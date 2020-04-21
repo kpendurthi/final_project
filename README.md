@@ -6,6 +6,8 @@ Project Links
 GitHub: (https://github.com/kpendurthi/final_project)
 heroku: https://myjobrecruiterapp.herokuapp.com/
 
+Technologies used:
+Django framework , postgress database and css
 
 MVP - Bronze
 View list of jobs available to apply and list of employers who posted the jobs
@@ -20,7 +22,7 @@ delete jobs and employers
 add authentication for users to update/edit/create/delte job and employers
 
 User Stories
-as a user, I can view a list of jobs 
+as a user(employer or employee), I can view a list of jobs 
 as a user, I can add/edit a job
 as a user, I can add/edit employer details and job deatils
 as a user, I can delete existing jobs
